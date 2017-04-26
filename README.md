@@ -113,3 +113,23 @@ collatz(8)
 ftoc(243)
     117.22222222222223
 ```
+
+## lab3_functions.py
+
+```
+def print_two(a,b):
+    print("Arguments: {0} and {1}".format(a,b))
+
+    print_two() => brak dwóch argumentów
+    print_two(4,1) => Valid
+    print_two(41) => brakuje argumentu
+    print_two(a=4, 1) => Invalid
+    print_two(4, a=1) => podwójny argument a
+    print_two(4, 1, 1) => Trzy zamiast dwóch argumentów
+    print_two(b=4, 1) => Invalid
+    print_two(a=4, b=1) => Valid Arguments: 4 and 1
+    print_two(b=1, a=4) => Valid Arguments: 4 and 1
+    print_two(1, a=1) => podwójny argument a
+    print_two(4, 1, b=1) => podwójny argument b
+```
+
