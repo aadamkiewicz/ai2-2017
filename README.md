@@ -280,5 +280,27 @@ def echo(arg=None):
 
     print(echo()) => None
     print(echo(5)) => arg: None
+    
+    def drive(has_car):
+    if not has_car:
+        return
+    return 100  # miles
+
+>>> print(say_hello())
+Hello!
+None
+>>> print(echo())
+arg: None
+None
+>>> print(echo(5))
+arg: 5
+5
+>>> print(echo("Hello"))
+arg: Hello
+Hello
+>>> drive(False)
+>>> drive(True)
+100
+>>> 
 ```
 
