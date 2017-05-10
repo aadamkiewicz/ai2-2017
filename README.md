@@ -197,8 +197,8 @@ def print_two(a,b):
     b: 2
     c: 4
     d: 8
-    keyword_args(5,2,0,1,"") => BŁĄD - za dużo argumentów
-    keyword_args(c=7,1) => BŁĄD - positional argument follows keyword argument
+    keyword_args(5,2,0,1,"") => TypeError: keyword_args() takes from 1 to 4 positional arguments but 5 were given
+    keyword_args(c=7,1) => SyntaxError: positional argument follows keyword argument
     keyword_args(c=7,a=1)
     a: 1
     b: 1
@@ -209,13 +209,13 @@ def print_two(a,b):
     b: 2
     c: []
     d: 5
-    keyword_args(1,7,e=6) => BŁĄD - argument e nie istnieje
+    keyword_args(1,7,e=6) => TypeError: keyword_args() got an unexpected keyword argument 'e'
     keyword_args(1,c=7)
     a: 1
     b: 1
     c: 7
     d: None
-    keyword_args(5,2,b=4) => BŁĄD - podwójna deklaracja argumentu b
+    keyword_args(5,2,b=4) => TypeError: keyword_args() got multiple values for argument 'b'
 
 def variadic(*args, **kwargs):
     print("Positional:", args)
@@ -227,14 +227,14 @@ def variadic(*args, **kwargs):
     variadic(1,1,n=1)
     Positional: (1, 1)
     Keyword: {'n': 1}
-    variadic(n=1,2,3) => BŁĄD - liczba pozycyjna umiejscowiona za słowem kluczowym
+    variadic(n=1,2,3) => SyntaxError: positional argument follows keyword argument
     variadic()
     Positional: ()
     Keyword: {}
     variadic(cs="Computer Science", pd="Product Design")
     Positional: ()
     Keyword: {'pd': 'Product Design', 'cs': 'Computer Science'}
-    variadic(cs="Computer Science", cs="CompSci", cs="CS") => BŁĄD - powtarzanie argumentów
+    variadic(cs="Computer Science", cs="CompSci", cs="CS") => SyntaxError: keyword argument repeated
     variadic(5,8,k=1,swap=2)
     Positional: (5, 8)
     Keyword: {'swap': 2, 'k': 1}
@@ -258,7 +258,7 @@ def speak_excitedly(a,b=1, c=False):
     else:
         print(a)
         
-    speak_excitedly("Tymek", 2, True) => TYMEK!!
+    speak_excitedly("Alan", 2, True) => ALAN!!
 
 def average(*a):
     if not a:
